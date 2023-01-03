@@ -1,0 +1,48 @@
+{% extends 'user_register/base.html' %}
+
+{% block content %}
+
+<div class="col-md-4 mx-auto" style="margin-left: 35rem">
+  <form action="/" method="POST">
+      {% csrf_token %}
+  
+      <div class="mb-3">
+          <h1>  LOGIN  </h1>
+      </div>
+      <div class="mb-3  align-items-center" >
+        <label for="exampleInputtext" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" id="exampleInputtext" >
+      </div>
+      <div class=" mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+      </div>
+      <br> 
+      <div class="row">
+        <div class="col-md-4">
+          <a href="{% url 'admin_login' %}" class="btn btn-secondary btn-block btn-lg">
+            Admin
+          </a>
+        </div>
+        <div class="col-md-4 ">
+          <button  type="submit" class="btn btn-success btn-lg">
+            LoginUser
+          </button>
+        </div>
+        <div class="col-md-4">
+          <a href="{% url 'sign_up' %}" class="btn btn-primary btn-block btn-lg">
+            Sign Up
+          </a>
+        </div>
+
+      </div>
+     
+  </form>
+
+  {% for message in messages %}
+  <p>{{message}}</p>
+  {% endfor %}
+
+</div>
+
+{% endblock %}
